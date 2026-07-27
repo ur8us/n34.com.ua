@@ -70,7 +70,7 @@ Pushes to `main` and manual runs from `main` also deploy the generated `build/` 
 
 ### Deployment Configuration
 
-Deployment uses FTP or FTPS through `lftp`. Do not commit credentials to the repository.
+Deployment uses FTP or explicit FTPS through `lftp`. Do not commit credentials to the repository.
 
 Add these repository secrets in GitHub under `Settings` -> `Secrets and variables` -> `Actions` -> `Secrets`:
 
@@ -83,6 +83,8 @@ Add these repository secrets in GitHub under `Settings` -> `Secrets and variable
 Add this repository variable under `Settings` -> `Secrets and variables` -> `Actions` -> `Variables`:
 
 - `FTP_PROTOCOL` with value `ftp` or `ftps`
+
+Use `ftps` for FTP over explicit TLS on port `21`. The workflow connects through `ftp://` internally and enables TLS with `lftp` when `FTP_PROTOCOL=ftps`.
 
 For this site, `FTP_REMOTE_DIR` should point to the domain document root:
 

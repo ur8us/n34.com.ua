@@ -126,6 +126,7 @@ jobs:
           trap cleanup EXIT
 
           ssl_force="false"
+          lftp_url="ftp://${FTP_HOST}:${FTP_PORT}"
           if [[ "${FTP_PROTOCOL}" == "ftps" ]]; then
             ssl_force="true"
           fi
@@ -142,7 +143,7 @@ jobs:
             printf 'open -u %s,%s %s\n' \
               "$(lftp_quote "${FTP_USERNAME}")" \
               "$(lftp_quote "${FTP_PASSWORD}")" \
-              "$(lftp_quote "${FTP_PROTOCOL}://${FTP_HOST}:${FTP_PORT}")"
+              "$(lftp_quote "${lftp_url}")"
             printf 'mkdir -p %s\n' "$(lftp_quote "${FTP_REMOTE_DIR}")"
             printf 'cd %s\n' "$(lftp_quote "${FTP_REMOTE_DIR}")"
             printf '%s\n' 'mirror --reverse --continue --verbose build/ .'
