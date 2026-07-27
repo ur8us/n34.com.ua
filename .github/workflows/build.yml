@@ -144,7 +144,7 @@ jobs:
               "$(lftp_quote "${FTP_USERNAME}")" \
               "$(lftp_quote "${FTP_PASSWORD}")" \
               "$(lftp_quote "${lftp_url}")"
-            printf 'mkdir -p %s\n' "$(lftp_quote "${FTP_REMOTE_DIR}")"
+            printf 'mkdir -pf %s\n' "$(lftp_quote "${FTP_REMOTE_DIR}")"
             printf 'cd %s\n' "$(lftp_quote "${FTP_REMOTE_DIR}")"
             printf '%s\n' 'mirror --reverse --continue --verbose build/ .'
             printf '%s\n' 'bye'
