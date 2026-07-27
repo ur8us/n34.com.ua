@@ -48,6 +48,9 @@ npm ci
 ## Deployment Rules
 
 - Deployment must only happen through GitHub Actions from the `main` branch.
+- Production deployment uses `lftp`.
+- Deployment must never run for pull requests.
+- FTP credentials must exist only in GitHub Secrets.
+- Do not add `mirror --delete` or any equivalent remote deletion behavior without explicit user approval.
 - Direct automatic publishing by AI agents is not allowed unless the user explicitly requests it.
 - Do not configure deployment, SFTP, or credentials unless the user explicitly asks for that work.
-

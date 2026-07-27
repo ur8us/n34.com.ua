@@ -64,20 +64,46 @@ npm run serve
 
 GitHub Actions checks every pull request and every push to `main`.
 
-The workflow installs dependencies from the npm lockfile and builds the production Docusaurus site. SFTP deployment will be added separately later.
+The workflow installs dependencies from the npm lockfile and builds the production Docusaurus site.
+
+Pushes to `main` and manual runs from `main` also deploy the generated `build/` directory using `lftp`. Pull requests only install dependencies and build the site; they never deploy.
+
+### Deployment Configuration
+
+Deployment uses FTP or FTPS through `lftp`. Do not commit credentials to the repository.
+
+Add these repository secrets in GitHub under `Settings` -> `Secrets and variables` -> `Actions` -> `Secrets`:
+
+- `FTP_HOST`
+- `FTP_PORT`
+- `FTP_USERNAME`
+- `FTP_PASSWORD`
+- `FTP_REMOTE_DIR`
+
+Add this repository variable under `Settings` -> `Secrets and variables` -> `Actions` -> `Variables`:
+
+- `FTP_PROTOCOL` with value `ftp` or `ftps`
+
+For this site, `FTP_REMOTE_DIR` should point to the domain document root:
+
+```text
+/www.n34.com.ua
+```
+
+To run deployment manually, open the repository on GitHub, go to `Actions`, select the `Build` workflow, choose `Run workflow`, and run it from the `main` branch.
+
+The deployment intentionally does not use `mirror --delete` yet. This avoids deleting unrelated files that may already exist in the remote directory.
 
 ## Future Deployment Notes
 
-Deployment is not configured yet.
-
-Later, deployment should be added with GitHub Actions and SFTP. Required secrets should be stored as GitHub Actions repository secrets, not committed to this repository.
+Deployment uses GitHub Actions and `lftp`. Required secrets must be stored as GitHub Actions repository secrets, not committed to this repository.
 
 Expected future secrets:
 
-- `SFTP_HOST`
-- `SFTP_USERNAME`
-- `SFTP_PASSWORD` or `SFTP_PRIVATE_KEY`
-- `SFTP_TARGET_PATH`
-- `SFTP_PORT` if the server does not use the default port
+- `FTP_HOST`
+- `FTP_PORT`
+- `FTP_USERNAME`
+- `FTP_PASSWORD`
+- `FTP_REMOTE_DIR`
 
-Do not add these values until the deployment workflow is created.
+Do not add secret values to source files, Markdown files, environment files, or workflow files.

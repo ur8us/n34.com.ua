@@ -30,3 +30,123 @@ jobs:
       - name: Build production site
         run: npm run build
 
+  deploy:
+    name: Deploy production site
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    environment:
+      name: production
+    concurrency:
+      group: production-deployment
+      cancel-in-progress: true
+    env:
+      FTP_PROTOCOL: ${{ vars.FTP_PROTOCOL }}
+      FTP_HOST: ${{ secrets.FTP_HOST }}
+      FTP_PORT: ${{ secrets.FTP_PORT }}
+      FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+      FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+      FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production site
+        run: npm run build
+
+      - name: Install lftp
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends lftp
+
+      - name: Upload build directory
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          : "${FTP_PROTOCOL:?FTP_PROTOCOL repository variable is required}"
+          : "${FTP_HOST:?FTP_HOST secret is required}"
+          : "${FTP_PORT:?FTP_PORT secret is required}"
+          : "${FTP_USERNAME:?FTP_USERNAME secret is required}"
+          : "${FTP_PASSWORD:?FTP_PASSWORD secret is required}"
+          : "${FTP_REMOTE_DIR:?FTP_REMOTE_DIR secret is required}"
+
+          if [[ "${FTP_PROTOCOL}" != "ftp" && "${FTP_PROTOCOL}" != "ftps" ]]; then
+            echo "FTP_PROTOCOL must be either 'ftp' or 'ftps'." >&2
+            exit 1
+          fi
+
+          if [[ ! "${FTP_PORT}" =~ ^[0-9]+$ ]]; then
+            echo "FTP_PORT must be numeric." >&2
+            exit 1
+          fi
+
+          if [[ ! -d build ]]; then
+            echo "Docusaurus build directory was not found." >&2
+            exit 1
+          fi
+
+          reject_newline() {
+            local name="$1"
+            local value="$2"
+            if [[ "${value}" == *$'\n'* || "${value}" == *$'\r'* ]]; then
+              echo "${name} must not contain newline characters." >&2
+              exit 1
+            fi
+          }
+
+          reject_newline "FTP_PROTOCOL" "${FTP_PROTOCOL}"
+          reject_newline "FTP_HOST" "${FTP_HOST}"
+          reject_newline "FTP_PORT" "${FTP_PORT}"
+          reject_newline "FTP_USERNAME" "${FTP_USERNAME}"
+          reject_newline "FTP_PASSWORD" "${FTP_PASSWORD}"
+          reject_newline "FTP_REMOTE_DIR" "${FTP_REMOTE_DIR}"
+
+          lftp_quote() {
+            local value="$1"
+            value="${value//\\/\\\\}"
+            value="${value//\"/\\\"}"
+            printf '"%s"' "${value}"
+          }
+
+          lftp_commands="$(mktemp)"
+          cleanup() {
+            rm -f "${lftp_commands}"
+          }
+          trap cleanup EXIT
+
+          ssl_force="false"
+          if [[ "${FTP_PROTOCOL}" == "ftps" ]]; then
+            ssl_force="true"
+          fi
+
+          {
+            printf '%s\n' 'set cmd:fail-exit yes'
+            printf '%s\n' 'set net:timeout 30'
+            printf '%s\n' 'set net:max-retries 2'
+            printf '%s\n' 'set net:reconnect-interval-base 5'
+            printf '%s\n' 'set ftp:passive-mode true'
+            printf 'set ftp:ssl-force %s\n' "${ssl_force}"
+            printf '%s\n' 'set ftp:ssl-protect-data true'
+            printf '%s\n' 'set ssl:verify-certificate true'
+            printf 'open -u %s,%s %s\n' \
+              "$(lftp_quote "${FTP_USERNAME}")" \
+              "$(lftp_quote "${FTP_PASSWORD}")" \
+              "$(lftp_quote "${FTP_PROTOCOL}://${FTP_HOST}:${FTP_PORT}")"
+            printf 'mkdir -p %s\n' "$(lftp_quote "${FTP_REMOTE_DIR}")"
+            printf 'cd %s\n' "$(lftp_quote "${FTP_REMOTE_DIR}")"
+            printf '%s\n' 'mirror --reverse --continue --verbose build/ .'
+            printf '%s\n' 'bye'
+          } >"${lftp_commands}"
+
+          lftp -f "${lftp_commands}"
