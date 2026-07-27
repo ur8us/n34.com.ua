@@ -60,6 +60,12 @@ You can preview the production build locally:
 npm run serve
 ```
 
+## Continuous Integration
+
+GitHub Actions checks every pull request and every push to `main`.
+
+The workflow installs dependencies from the npm lockfile and builds the production Docusaurus site. SFTP deployment will be added separately later.
+
 ## Future Deployment Notes
 
 Deployment is not configured yet.
@@ -75,4 +81,3 @@ Expected future secrets:
 - `SFTP_PORT` if the server does not use the default port
 
 Do not add these values until the deployment workflow is created.
-
