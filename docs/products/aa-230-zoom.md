@@ -1,6 +1,6 @@
 ---
 title: RigExpert AA-230 Zoom
-description: Compact handheld antenna analyzer covering frequencies up to 230 MHz.
+description: Compact handheld antenna analyzer covering frequencies from 10 kHz up to 230 MHz.
 sidebar_position: 2
 authors:
   - editorial-team
@@ -19,7 +19,7 @@ tags:
 
 ## Summary
 
-The RigExpert AA-230 Zoom was a compact handheld antenna analyzer covering frequencies up to 230 MHz. Introduced around 2014 and produced for roughly a decade, it became one of RigExpert’s most popular analyzers.
+The RigExpert AA-230 Zoom was a compact handheld antenna analyzer covering frequencies from 10 kHz up to 230 MHz. Introduced around 2014 and produced for roughly a decade, it became one of RigExpert’s most popular analyzers.
 
 ## Why it mattered
 
@@ -29,7 +29,7 @@ Its main advantages included:
 
 - a color display;
 - sufficiently fast measurements for practical field use;
-- frequency coverage up to 230 MHz;
+- frequency coverage from 10 kHz up to 230 MHz;
 - coverage of amateur radio bands through the 2-meter range, including the 220 MHz band used in North America;
 - a professional N-type connector;
 - operation from ordinary replaceable batteries or rechargeable cells.
