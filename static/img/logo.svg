@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="N34 Wiki">
+  <rect width="64" height="64" rx="8" fill="#1f6f78"/>
+  <path d="M14 45V19h7l15 16V19h8v26h-7L22 29v16h-8z" fill="#fff"/>
+  <path d="M42 45l8-26h7l-8 26h-7z" fill="#d7b56d"/>
+</svg>
