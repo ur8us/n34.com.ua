@@ -1,8 +1,8 @@
 {
   "label": "People",
-  "position": 3,
+  "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Teams, roles, contributors, and editorial ownership."
+    "description": "People, roles, teams, contributors, and editorial ownership."
   }
 }

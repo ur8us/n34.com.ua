@@ -10,6 +10,7 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
+        <p className={styles.notice}>Prototype - not yet the official RigExpert company history</p>
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
@@ -17,8 +18,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/">
-            Open Wiki
+            to="/docs/about/">
+            Open Knowledge Base
           </Link>
         </div>
       </div>
@@ -32,24 +33,26 @@ function PrototypeSummary() {
       <div className="container">
         <div className={styles.summaryGrid}>
           <article>
-            <h2>Markdown-first structure</h2>
+            <h2>Markdown-based knowledge base</h2>
             <p>
-              The prototype uses Docusaurus docs pages as the foundation for a
-              future company and history wiki.
+              This experimental site uses Markdown articles to organize
+              technical notes, products, people, sources, and history.
             </p>
           </article>
           <article>
-            <h2>Prepared sections</h2>
+            <h2>Maintained in GitHub</h2>
             <p>
-              Example pages are organized under History, Products, People, and
-              Technologies so the information architecture can be reviewed early.
+              Content changes are reviewed in the repository, built by
+              Docusaurus, and deployed automatically after the production build
+              succeeds.
             </p>
           </article>
           <article>
-            <h2>No secrets included</h2>
+            <h2>Ready for collaboration</h2>
             <p>
-              Deployment secrets are documented as future requirements only.
-              No passwords, tokens, or private keys are configured here.
+              The project is being prepared for collaborative editing and later
+              AI-assisted editorial workflows while keeping source-backed
+              writing as the standard.
             </p>
           </article>
         </div>
@@ -63,7 +66,7 @@ export default function Home() {
   return (
     <Layout
       title={siteConfig.title}
-      description="Test prototype for a static Markdown-based company and history wiki.">
+      description="Experimental Markdown-based knowledge base for technical notes, products, people, and history.">
       <HomepageHeader />
       <main>
         <PrototypeSummary />

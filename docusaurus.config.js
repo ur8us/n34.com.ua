@@ -10,8 +10,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'N34 Wiki Prototype',
-  tagline: 'A test Markdown wiki for future company and history documentation.',
+  title: 'N34 Knowledge Base',
+  tagline: 'Technical notes, products, people, and history',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -57,9 +57,9 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'N34 Wiki',
+        title: 'N34 Knowledge Base',
         logo: {
-          alt: 'N34 Wiki Logo',
+          alt: 'N34 Knowledge Base logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -67,7 +67,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'wikiSidebar',
             position: 'left',
-            label: 'Wiki',
+            label: 'Knowledge Base',
           },
         ],
       },
@@ -78,12 +78,12 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Wiki Overview',
-                to: '/docs/',
+                label: 'About',
+                to: '/docs/about/',
               },
               {
-                label: 'History',
-                to: '/docs/category/history',
+                label: 'Company History',
+                to: '/docs/category/company-history',
               },
               {
                 label: 'Products',
@@ -105,16 +105,16 @@ const config = {
             ],
           },
           {
-            title: 'Prototype',
+            title: 'Sources',
             items: [
               {
-                label: 'Secrets Notes',
-                to: '/docs/technologies/secrets-and-deployment-notes',
+                label: 'Sources and Archives',
+                to: '/docs/category/sources-and-archives',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} N34 Wiki Prototype. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} N34 Knowledge Base. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

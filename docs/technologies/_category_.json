@@ -1,8 +1,8 @@
 {
   "label": "Technologies",
-  "position": 4,
+  "position": 5,
   "link": {
     "type": "generated-index",
-    "description": "Technical stack notes, architecture history, and operational references."
+    "description": "Technical concepts, tools, platforms, and implementation notes."
   }
 }
