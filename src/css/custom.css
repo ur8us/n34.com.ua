@@ -29,6 +29,12 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+/* Keep generated previous/next navigation labels free of mojibake artifacts. */
+.pagination-nav__link--prev .pagination-nav__label::before,
+.pagination-nav__link--next .pagination-nav__label::after {
+  content: none !important;
+}
+
 /* Reusable RF Practice / QST-inspired editorial layout. */
 .rf-practice {
   --rf-teal: #0f4f59;
