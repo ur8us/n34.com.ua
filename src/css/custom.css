@@ -1,7 +1,7 @@
 /**
  * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * bundles Infima by default. Infima is a CSS framework designed
+ * to work well for content-centric websites.
  */
 
 /* You can override the default Infima variables here. */
@@ -27,4 +27,225 @@
   --ifm-color-primary-lighter: #87d3dc;
   --ifm-color-primary-lightest: #a7e0e6;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Reusable RF Practice / QST-inspired editorial layout. */
+.rf-practice {
+  --rf-teal: #0f4f59;
+  --rf-teal-dark: #0d3540;
+  --rf-orange: #dc5a1d;
+  --rf-gold: #f6ad1f;
+  --rf-blue-pale: #e7f3f6;
+  --rf-cream: #fff5df;
+  --rf-rule: #cfd8dc;
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.rf-practice h1,
+.rf-practice h2,
+.rf-practice h3 {
+  color: var(--rf-teal);
+  letter-spacing: -0.02em;
+}
+
+.rf-kicker {
+  color: var(--rf-orange);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.rf-cover {
+  position: relative;
+  overflow: hidden;
+  min-height: 560px;
+  padding: 3rem;
+  margin: 0 0 2rem;
+  color: #fff;
+  background:
+    linear-gradient(150deg, rgba(8, 48, 59, 0.98) 0 58%, transparent 58%),
+    linear-gradient(150deg, transparent 0 63%, rgba(221, 82, 20, 0.97) 63% 75%, transparent 75%),
+    linear-gradient(150deg, transparent 0 76%, rgba(248, 171, 28, 0.98) 76%),
+    linear-gradient(110deg, #062d37, #214f4e);
+  border-radius: 8px;
+}
+
+.rf-cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 72px 72px;
+  pointer-events: none;
+}
+
+.rf-cover > * {
+  position: relative;
+  z-index: 1;
+}
+
+.rf-cover__eyebrow,
+.rf-cover__issue {
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.rf-cover__issue {
+  float: right;
+  font-size: 0.82rem;
+}
+
+.rf-cover__content {
+  max-width: 680px;
+  margin-top: 13rem;
+}
+
+.rf-cover h1 {
+  color: #fff;
+  font-size: clamp(2.7rem, 7vw, 5.4rem);
+  line-height: 0.98;
+  margin-bottom: 1rem;
+}
+
+.rf-cover__subtitle {
+  font-size: 1.35rem;
+  max-width: 620px;
+}
+
+.rf-cover__strap {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid rgba(255,255,255,.55);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.83rem;
+}
+
+.rf-deck {
+  font-size: 1.25rem;
+  color: var(--ifm-color-emphasis-700);
+  border-bottom: 1px solid var(--rf-rule);
+  padding-bottom: 1rem;
+}
+
+.rf-meta {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 1.5rem;
+}
+
+.rf-short-answer,
+.rf-note,
+.rf-formula,
+.rf-calc-card {
+  break-inside: avoid;
+}
+
+.rf-short-answer {
+  background: var(--rf-blue-pale);
+  border-left: 5px solid var(--rf-orange);
+  padding: 1.2rem 1.4rem;
+  margin: 1.5rem 0;
+}
+
+.rf-note {
+  background: var(--rf-cream);
+  border: 1px solid #e6ba67;
+  padding: 1rem 1.2rem;
+  margin: 1.25rem 0;
+}
+
+.rf-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.rf-dropcap::first-letter {
+  float: left;
+  color: var(--rf-orange);
+  font-size: 4.4rem;
+  line-height: 0.8;
+  font-weight: 800;
+  padding-right: 0.45rem;
+  padding-top: 0.25rem;
+}
+
+.rf-formula {
+  background: var(--rf-teal-dark);
+  color: #fff;
+  padding: 1.25rem 1.4rem;
+  text-align: center;
+  margin: 1rem 0;
+  border-radius: 3px;
+}
+
+.rf-formula strong {
+  display: block;
+  font-size: 1.55rem;
+  margin-bottom: 0.35rem;
+}
+
+.rf-calc-card {
+  background: var(--ifm-background-surface-color);
+  border-top: 4px solid var(--rf-orange);
+  padding: 1rem 1.2rem;
+}
+
+.rf-table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.rf-practice table {
+  width: 100%;
+  font-size: 0.92rem;
+}
+
+.rf-practice thead {
+  background: var(--rf-teal);
+  color: #fff;
+}
+
+.rf-practice tbody tr:nth-child(even) {
+  background: rgba(15,79,89,.06);
+}
+
+.rf-practice details {
+  border-bottom: 1px solid var(--rf-rule);
+  padding: 0.8rem 0;
+}
+
+.rf-practice summary {
+  color: var(--rf-teal);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .rf-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .rf-cover {
+    min-height: 460px;
+    padding: 1.5rem;
+  }
+
+  .rf-cover__content {
+    margin-top: 8rem;
+  }
+
+  .rf-cover__issue {
+    float: none;
+    display: block;
+    margin-top: 0.3rem;
+  }
 }
