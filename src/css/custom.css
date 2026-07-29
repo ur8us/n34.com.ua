@@ -150,6 +150,7 @@
 .rf-short-answer {
   background: var(--rf-blue-pale);
   border-left: 5px solid var(--rf-orange);
+  color: #18343a;
   padding: 1.2rem 1.4rem;
   margin: 1.5rem 0;
 }
@@ -157,8 +158,14 @@
 .rf-note {
   background: var(--rf-cream);
   border: 1px solid #e6ba67;
+  color: #3d3424;
   padding: 1rem 1.2rem;
   margin: 1.25rem 0;
+}
+
+.rf-short-answer strong,
+.rf-note strong {
+  color: inherit;
 }
 
 .rf-grid-2 {
@@ -189,6 +196,7 @@
 
 .rf-formula strong {
   display: block;
+  color: #fff;
   font-size: 1.55rem;
   margin-bottom: 0.35rem;
 }
@@ -214,19 +222,46 @@
   color: #fff;
 }
 
+.rf-practice thead th {
+  color: #fff;
+}
+
 .rf-practice tbody tr:nth-child(even) {
   background: rgba(15,79,89,.06);
 }
 
 .rf-practice details {
-  border-bottom: 1px solid var(--rf-rule);
-  padding: 0.8rem 0;
+  border: 1px solid var(--rf-rule);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin: 0.75rem 0;
 }
 
 .rf-practice summary {
   color: var(--rf-teal);
   font-weight: 700;
   cursor: pointer;
+}
+
+[data-theme='dark'] .rf-practice {
+  --rf-teal: #65d3df;
+  --rf-rule: #557078;
+}
+
+[data-theme='dark'] .rf-practice h1,
+[data-theme='dark'] .rf-practice h2,
+[data-theme='dark'] .rf-practice h3,
+[data-theme='dark'] .rf-practice summary {
+  color: #65d3df;
+}
+
+[data-theme='dark'] .rf-practice details {
+  background: #173b44;
+  border-color: #65c9d6;
+}
+
+[data-theme='dark'] .rf-practice tbody tr:nth-child(even) {
+  background: rgba(101, 211, 223, 0.08);
 }
 
 @media (max-width: 800px) {
