@@ -11,32 +11,57 @@ tags:
   - aa-230-zoom
 ---
 
-# RigExpert AA-230 Zoom
+<div className="rf-practice">
 
-> **Status:** Draft  
-> **Last reviewed:** Not yet reviewed  
-> **Editorial owner:** Not assigned
+<div className="rf-cover">
+  <div className="rf-cover__eyebrow">RF Product Archive</div>
+  <div className="rf-cover__issue">RigExpert · Antenna analyzers</div>
+  <div className="rf-cover__content">
+    <div className="rf-kicker">Portable measurement</div>
+    <h1>RigExpert AA-230 Zoom</h1>
+    <p className="rf-cover__subtitle">A compact handheld antenna analyzer covering frequencies from 100 kHz up to 230 MHz.</p>
+    <span className="rf-cover__strap">Draft product profile</span>
+  </div>
+</div>
 
-## Summary
+<p className="rf-deck">Introduced around 2014 and produced for roughly a decade, the AA-230 Zoom became one of RigExpert’s most popular portable analyzers.</p>
 
-The RigExpert AA-230 Zoom was a compact handheld antenna analyzer covering frequencies from 100 kHz up to 230 MHz. Introduced around 2014 and produced for roughly a decade, it became one of RigExpert’s most popular analyzers.
+<p className="rf-meta"><strong>Status:</strong> Draft · <strong>Last reviewed:</strong> Not yet reviewed · <strong>Editorial owner:</strong> Not assigned</p>
+
+<div className="rf-short-answer">
+<strong>At a glance.</strong> The AA-230 Zoom combined broad useful coverage, a color display, fast field measurements, an N-type connector, and ordinary replaceable batteries in a pocket-sized instrument.
+</div>
 
 ## Why it mattered
 
+<div className="rf-grid-2">
+<div>
+
 At the time, many antenna analyzers were comparatively large and cumbersome. The AA-230 Zoom was designed as a much more compact and practical instrument that could fit in a pocket and be carried easily into the field.
 
-Its main advantages included:
+</div>
+<div className="rf-calc-card">
 
-- a color display;
-- sufficiently fast measurements for practical field use;
-- frequency coverage from 100 kHz up to 230 MHz;
-- coverage of amateur radio bands through the 2-meter range, including the 220 MHz band used in North America;
-- a professional N-type connector;
-- operation from ordinary replaceable batteries or rechargeable cells.
+### Key characteristics
+
+- Color display
+- Fast measurements for practical field work
+- Frequency coverage from 100 kHz to 230 MHz
+- Amateur-radio coverage through the 2-meter range
+- 220 MHz band coverage for North America
+- Professional N-type connector
+- Replaceable batteries or rechargeable cells
+
+</div>
+</div>
 
 ## Practical use
 
-The AA-230 Zoom was intended as a mass-market portable analyzer for radio amateurs. Its compact size, broad useful frequency range, and familiar connector made it convenient for everyday antenna work outside the workshop.
+<p className="rf-dropcap">The AA-230 Zoom was intended as a mass-market portable analyzer for radio amateurs. Its compact size, broad useful frequency range, and familiar connector made it convenient for everyday antenna work outside the workshop.</p>
+
+<div className="rf-note">
+<strong>Editorial note.</strong> The introduction date, production period, market popularity, and technical details should still be checked against product manuals, archived web pages, catalogs, and internal company records before publication.
+</div>
 
 ## Image source
 
@@ -47,4 +72,6 @@ An official product image is available on the [RigExpert AA-230 Zoom product pag
 - [Official RigExpert AA-230 Zoom product page](https://rigexpert.com/products/antenna-analyzers/aa-230-zoom/)
 - [RigExpert company milestones](https://old.rigexpert.com/about/about-us/)
 
-This page is based partly on an oral editorial account and remains a draft. The introduction date, production period, market popularity, and technical details should be checked against product manuals, archived web pages, catalogs, and internal company records before the page is marked as reviewed or published.
+This page is based partly on an oral editorial account and remains a draft.
+
+</div>
