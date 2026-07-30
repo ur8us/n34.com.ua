@@ -63,74 +63,13 @@
   font-size: 0.85rem;
 }
 
+/*
+ * The former colorful .rf-cover banner has been retired.
+ * Keep the selector hidden so older pages and copied templates that still
+ * contain the markup do not render the banner during migration.
+ */
 .rf-cover {
-  position: relative;
-  overflow: hidden;
-  min-height: 560px;
-  padding: 3rem;
-  margin: 0 0 2rem;
-  color: #fff;
-  background:
-    linear-gradient(150deg, rgba(8, 48, 59, 0.98) 0 58%, transparent 58%),
-    linear-gradient(150deg, transparent 0 63%, rgba(221, 82, 20, 0.97) 63% 75%, transparent 75%),
-    linear-gradient(150deg, transparent 0 76%, rgba(248, 171, 28, 0.98) 76%),
-    linear-gradient(110deg, #062d37, #214f4e);
-  border-radius: 8px;
-}
-
-.rf-cover::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-  background-size: 72px 72px;
-  pointer-events: none;
-}
-
-.rf-cover > * {
-  position: relative;
-  z-index: 1;
-}
-
-.rf-cover__eyebrow,
-.rf-cover__issue {
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.rf-cover__issue {
-  float: right;
-  font-size: 0.82rem;
-}
-
-.rf-cover__content {
-  max-width: 680px;
-  margin-top: 13rem;
-}
-
-.rf-cover h1 {
-  color: #fff;
-  font-size: clamp(2.7rem, 7vw, 5.4rem);
-  line-height: 0.98;
-  margin-bottom: 1rem;
-}
-
-.rf-cover__subtitle {
-  font-size: 1.35rem;
-  max-width: 620px;
-}
-
-.rf-cover__strap {
-  display: inline-block;
-  margin-top: 1.2rem;
-  padding: 0.65rem 0.9rem;
-  border: 1px solid rgba(255,255,255,.55);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 0.83rem;
+  display: none !important;
 }
 
 .rf-deck {
@@ -273,20 +212,5 @@
 @media (max-width: 800px) {
   .rf-grid-2 {
     grid-template-columns: 1fr;
-  }
-
-  .rf-cover {
-    min-height: 460px;
-    padding: 1.5rem;
-  }
-
-  .rf-cover__content {
-    margin-top: 8rem;
-  }
-
-  .rf-cover__issue {
-    float: none;
-    display: block;
-    margin-top: 0.3rem;
   }
 }
