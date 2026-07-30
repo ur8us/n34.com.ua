@@ -13,18 +13,11 @@ tags:
 
 <div className="rf-practice">
 
-<div className="rf-cover">
-  <div className="rf-cover__eyebrow">RF Product Archive</div>
-  <div className="rf-cover__issue">RigExpert · Antenna analyzers</div>
-  <div className="rf-cover__content">
-    <div className="rf-kicker">Portable measurement</div>
-    <h1>RigExpert AA-230 Zoom</h1>
-    <p className="rf-cover__subtitle">A compact handheld antenna analyzer covering frequencies from 100 kHz up to 230 MHz.</p>
-    <span className="rf-cover__strap">Draft product profile</span>
-  </div>
-</div>
+<div className="rf-kicker">RF Product Archive · Portable measurement</div>
 
-<p className="rf-deck">Introduced around 2014 and produced for roughly a decade, the AA-230 Zoom became one of RigExpert’s most popular portable analyzers.</p>
+# RigExpert AA-230 Zoom
+
+<p className="rf-deck">A compact handheld antenna analyzer covering frequencies from 100 kHz up to 230 MHz. Introduced around 2014 and produced for roughly a decade, it became one of RigExpert’s most popular portable analyzers.</p>
 
 <p className="rf-meta"><strong>Status:</strong> Draft · <strong>Last reviewed:</strong> Not yet reviewed · <strong>Editorial owner:</strong> Not assigned</p>
 
