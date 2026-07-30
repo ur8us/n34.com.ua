@@ -13,18 +13,11 @@ tags:
 
 <div className="rf-practice">
 
-<div className="rf-cover">
-  <div className="rf-cover__eyebrow">RF Product Archive</div>
-  <div className="rf-cover__issue">RigExpert · Трансиверні інтерфейси</div>
-  <div className="rf-cover__content">
-    <div className="rf-kicker">Початок USB-напряму</div>
-    <h1>RigExpert S/D</h1>
-    <p className="rf-cover__subtitle">Ранній USB-керований трансиверний інтерфейс RigExpert, представлений радіоаматорській спільноті у 2003 році.</p>
-    <span className="rf-cover__strap">Чернетка профілю продукту</span>
-  </div>
-</div>
+<div className="rf-kicker">RF Product Archive · Початок USB-напряму</div>
 
-<p className="rf-deck">Пристрій спочатку мав назву RigExpert, а згодом був перейменований на RigExpert S/D. Саме з нього почався окремий напрям USB-інтерфейсів компанії.</p>
+# RigExpert S/D
+
+<p className="rf-deck">Ранній USB-керований трансиверний інтерфейс RigExpert, представлений радіоаматорській спільноті у 2003 році. Пристрій спочатку мав назву RigExpert, а згодом був перейменований на RigExpert S/D.</p>
 
 <p className="rf-meta"><strong>Статус:</strong> Чернетка · <strong>Остання перевірка:</strong> Ще не перевірено · <strong>Відповідальний редактор:</strong> Не призначено</p>
 
