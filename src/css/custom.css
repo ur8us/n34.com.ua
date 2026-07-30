@@ -154,11 +154,16 @@
 
 .rf-table-wrap {
   overflow-x: auto;
-  margin: 1.5rem 0;
+  margin: 1.5rem auto;
+  width: fit-content;
+  max-width: 100%;
 }
 
 .rf-practice table {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 0.92rem;
 }
 
@@ -212,5 +217,14 @@
 @media (max-width: 800px) {
   .rf-grid-2 {
     grid-template-columns: 1fr;
+  }
+
+  .rf-table-wrap {
+    width: 100%;
+  }
+
+  .rf-practice table {
+    width: max-content;
+    min-width: 100%;
   }
 }
